@@ -1,0 +1,52 @@
+{% extends 'main.html' %}
+{% load static %}
+{% block content %}
+
+
+<div class="container-fluid" id="cont2">
+    {% include 'navbar.html' %}
+
+      <!-- Nis permbajtja -->
+      <div class="container">
+        <div class="abtbg">
+            <div class="row src">
+                <div class="col">
+                    <div class="parag">
+                        <hr>
+                        <p>OUR MISSION</p>
+                    </div>
+                    <h2>INTERNET ON A REMONTE ISLAND?</h2>
+                    <p>With the pandemic still affecting people and encouraging remote work, people with spotty internet connections working from a beach or secluded island can now enjoy reliable hight-speed internet while still escaping life in a busy town.</p>
+                    <a href="{% url 'internet' %}" class="btn btn-primary btnabout">EXPLORE</a>
+                </div>
+                <div class="col">
+                    <div class="img1">
+                        <img src="{% static 'image/foto1.jpg' %}">
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="abtbg">
+            <div class="row src">
+                <div class="col">
+                    <div class="img1 second">
+                        <img src="{% static 'image/foto2.jpg' %}">
+                    </div>
+                </div>
+                <div class="col ab">
+                    <div class="parag1">
+                        <hr>
+                        <p>OUR CAPABILITIES</p>
+                    </div>
+                    <h2>INNOVATION</h2>
+                    <p>LightSpeed uses thousands  of micro satellites scrattered around in low orbit to bring high-speed internet anywhere on the planet. This lets us project down in fixed spot on the Earth and drastically reduce internet bandwidth and latency.</p>
+                    <a href="{% url 'innovation' %}" class="btn btn-primary btnabout1">LEARN MORE</a>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+    <!-- Mbaron permbajtja -->
+{% endblock %}

@@ -1,0 +1,91 @@
+{% extends 'main.html' %}
+{% load static %}
+{% block content %}
+
+<div class="container-fluid" id="cont4">
+      {% include 'navbar.html' %}
+
+  {% if messages %}
+  {% for message in messages %}
+  <div {% if message.tags %} class="alert3 alert alert-{{ message.tags }}" {% endif %} role="alert">
+    {{ message }}
+    {% endfor %}
+  </div>
+  {% endif %}
+
+      <!-- Nis permbajtja -->
+    <div class="container-fluid">
+        <h1 class="pricingtitle">PRICING OPTIONS</h1>
+        <div class="container btnposition">
+          <div class="carousel-indicators inditacor-pricing">
+            <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active btn-pricing" aria-current="true" aria-label="Slide 1"><p>Individuals</p></button>
+            <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" class="active btn-pricing1" aria-label="Slide 2"><p>Businesses</p></button>
+          </div>
+        </div>
+        <div id="carouselExampleIndicators" class="carousel slide carousel-pricing">
+          
+            <div class="carousel-inner">
+              <div class="carousel-item active">
+                  <div class="row price-row">
+                    {% for price in prices %}
+                    <div class="col">
+                      <div class="kol1">
+                        <h2>{{price.internet_title}}</h2>
+                        <p>{{price.internet_model}}</p>
+                        <div class="price1">
+                          <p>$</p><h2>{{price.internet_price}}</h2><p class="month">/month</p>
+                        </div>
+                        <a href="{% url 'product' price.slug %}" class="btn btn-primary btn-pricing mt-4">Select</a>
+                        <div class="text-price">
+                          <p>Download speed : {{price.download_speed}}</p>
+                          <p>Upload speed : {{price.upload_speed}}</p>
+                          <p>Data cap : {{price.data_cap}}</p>
+                          <p>Contract : {{price.contract}}</p>
+                          <p>Setup cost : $ {{price.setup_cost}}</p>
+                        </div>
+                      </div>
+                    </div>
+                    {% endfor %}
+                </div>
+                <div class="most-popular">
+                  <p>MOST POPULAR</p>
+                </div>
+              </div>
+              <div class="carousel-item">
+                
+                  <div class="row price-row">
+                    {% for prices in pricess %}
+                    <div class="col">
+                      <div class="kol1">
+                        <h2>{{prices.internet1_title}}</h2>
+                        <p>{{prices.internet1_model}}</p>
+                        <div class="price1">
+                          <p>$</p><h2>{{prices.internet1_price}}</h2><p class="month">/month</p>
+                        </div>
+                        <a href="{% url 'productBusiness' prices.slug %}" class="btn btn-primary btn-pricing mt-4">Select</a>
+                        <div class="text-price">
+                          <p>Download speed : {{prices.download1_speed}}</p>
+                          <p>Upload speed : {{prices.upload1_speed}}</p>
+                          <p>Data cap : {{prices.data1_cap}}</p>
+                          <p>Contract : {{prices.contract1}}</p>
+                          <p>Setup cost : $ {{prices.setup1_cost}}</p>
+                        </div>
+                      </div>
+                    </div>
+                    {% endfor %}
+                </div>
+                <div class="most-popular">
+                  <p>MOST POPULAR</p>
+                </div>
+
+              </div>
+
+
+
+              </div>
+            </div>
+          </div>
+    </div>
+</div>
+    <!-- Mbaron permbajtja -->
+{% endblock %}

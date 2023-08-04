@@ -1,0 +1,53 @@
+{% extends 'main.html' %}
+{% load static %}
+{% block content %}
+
+<div class="container-fluid" id="cont11">
+      {% include 'navbar.html' %}
+
+
+  <div class="order mt-5">
+            <div class="kol1">
+                <h2>{{detProduct.internet_title}}</h2>
+                <p>{{detProduct.internet_model}}</p>
+                <div class="price1">
+                    <p>$</p><h2>{{detProduct.internet_price}}</h2><p class="month">/month</p>
+                </div>
+                <div class="text-price">
+                    <p>Download speed : {{detProduct.download_speed}}</p>
+                    <p>Upload speed : {{detProduct.upload_speed}}</p>
+                    <p>Data cap : {{detProduct.data_cap}}</p>
+                    <p>Contract : {{detProduct.contract}}</p>
+                    <p>Setup cost : $ {{detProduct.setup_cost}}</p>
+                </div>
+            </div>
+
+        <div class="pay-width">
+            {% if messages %}
+            {% for message in messages %}
+            <div {% if message.tags %} class="alert2 alert alert-{{ message.tags }}" {% endif %} role="alert">
+              {{ message }}
+              {% endfor %}
+            </div>
+            {% endif %}
+
+          <h1>Pay now</h1>
+
+
+            <div class="payicon">
+              {{ form.render }}
+            </div>
+
+          <h1>Go back</h1>
+          <a href="{% url 'price' %}" class="btn btn-primary btn-pricing mt-4">Go Back</a>
+        </div>
+
+
+  </div>
+      <!-- Nis permbajtja -->
+
+
+
+</div>
+    <!-- Mbaron permbajtja -->
+{% endblock %}

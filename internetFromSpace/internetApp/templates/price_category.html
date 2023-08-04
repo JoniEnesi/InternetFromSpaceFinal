@@ -1,0 +1,115 @@
+{% extends 'main.html' %}
+{% load static %}
+{% block content %}
+
+<div class="container-fluid" id="cont11">
+      {% include 'navbar.html' %}
+
+      <!-- Nis permbajtja -->
+    <div class="container-fluid">
+
+        <div class="order mt-5">
+            <div class="kol1">
+                <h2>{{detProduct_Business.internet1_title}}</h2>
+                <p>{{detProduct_Business.internet1_model}}</p>
+                <div class="price1">
+                    <p>$</p><h2>{{detProduct_Business.internet1_price}}</h2><p class="month">/month</p>
+                </div>
+                <div class="text-price">
+                    <p>Download speed : {{detProduct_Business.download1_speed}}</p>
+                    <p>Upload speed : {{detProduct_Business.upload1_speed}}</p>
+                    <p>Data cap : {{detProduct_Business.data1_cap}}</p>
+                    <p>Contract : {{detProduct_Business.contract1}}</p>
+                    <p>Setup cost : $ {{detProduct_Business.setup1_cost}}</p>
+                </div>
+            </div>
+
+            {% if messages %}
+            {% for message in messages %}
+            <div {% if message.tags %} class="alert2 alert alert-{{ message.tags }}" {% endif %} role="alert">
+                {{ message }}
+                {% endfor %}
+              </div>
+            {% endif %}
+            {{ form.render }}
+
+            <div class="order1">
+            {% if messages %}
+            {% for message in messages %}
+            <div {% if message.tags %} class="alert2 alert alert-{{ message.tags }}" {% endif %} role="alert">
+                {{ message }}
+                {% endfor %}
+              </div>
+            {% endif %}
+                <form method="POST">
+                    {% csrf_token %}
+                    <div class="row justify-content-evenly">
+                        <div class="col-12 col-lg-6 col-md-3">
+                            <div class="form-floating mb-3">
+                              <input type="text" name="res_emri" class="form-control " id="floatingInput" placeholder="Name">
+                              <label for="floatingInput">Name</label>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row justify-content-evenly">
+                        <div class="col-12 col-lg-6 col-md-3">
+                            <div class="form-floating mb-3">
+                              <input type="text" name="res_mbiemri" class="form-control " id="floatingInput" placeholder="LastName">
+                              <label for="floatingInput">Last Name</label>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row justify-content-evenly">
+                        <div class="col-12 col-lg-6 col-md-3">
+                            <div class="form-floating mb-3">
+                              <input type="email" name="res_email" class="form-control " id="floatingInput" placeholder="name@example.com">
+                              <label for="floatingInput">Email address</label>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row justify-content-evenly">
+                        <div class="col-12 col-lg-6 col-md-3">
+                            <div class="form-floating mb-3">
+                              <input type="number" name="res_number" class="form-control " id="floatingInput" placeholder="Phonenumber">
+                              <label for="floatingInput">Phone Number</label>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row justify-content-evenly">
+                        <div class="col-12 col-lg-6 col-md-3">
+                            <div class="form-floating mb-3">
+                              <input type="text" name="res_address" class="form-control " id="floatingInput" placeholder="Address">
+                              <label for="floatingInput">Address</label>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row justify-content-evenly">
+                        <div class="col-12 col-lg-6 col-md-3">
+                            <div class="form-floating mb-3">
+                              <input type="text" name="res_street" class="form-control " id="floatingInput" placeholder="Street">
+                              <label for="floatingInput">Street</label>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row justify-content-evenly">
+                        <div class="col-12 col-lg-6 col-md-3">
+                            <button type="submit" name="btnreserv" class="btnreserv mt-4">Send</button>
+                        </div>
+                    </div>
+
+                </form>
+            </div>
+        </div>
+
+
+    </div>
+
+</div>
+    <!-- Mbaron permbajtja -->
+{% endblock %}

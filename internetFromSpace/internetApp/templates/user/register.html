@@ -1,0 +1,44 @@
+{% extends 'main.html' %}
+{% load static %}
+{% block content %}
+
+<div class="container-fluid" id="cont6">
+    {% include 'navbar.html' %}
+
+      <!-- Nis permbajtja -->
+
+      <div class="container">
+        <form method="POST" class="login-form1">
+           {% csrf_token %}
+            <div class="row">
+              <div class="col-12 title-login">
+                <h1>Register</h1>
+              </div>
+              {% for f in form %}
+                <label class="label">{{f.label}}</label>
+                <div>{{f}}</div>
+
+                {% for error in f.errors %}
+                    <p style="color: red">{{error}}</p>
+                {% endfor %}
+
+                {% endfor %}
+              <div class="col-12">
+                <button type="submit" id="link-longin" >
+                  <span></span>
+                  <span></span>
+                  <span></span>
+                  <span></span>
+                  Register
+                </button>
+                <!-- <button type="submit" class="btn btn-primary btn-ghost">Login</button> -->
+              </div>
+            </div>
+            
+        </form>
+      </div>
+
+
+</div>
+    <!-- Mbaron permbajtja -->
+{% endblock %}

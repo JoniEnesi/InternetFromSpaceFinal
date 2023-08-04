@@ -1,0 +1,55 @@
+{% extends 'main.html' %}
+{% load static %}
+{% block content %}
+
+<div class="container-fluid" id="cont5">
+    {% include 'navbar.html' %}
+
+      <!-- Nis permbajtja -->
+
+      <div class="container">
+        <form method="POST" class="login-form1">
+            {% csrf_token %}
+            <div class="row">
+              <div class="col-12 title-login">
+                <h1>Sing Up</h1>
+              </div>
+              <div class="col-12">
+              {% for f in form %}
+                <label class="label">{{f.label}}</label>
+                <div class="user-box">{{f}}</div>
+
+              {% endfor %}
+              </div>
+
+              <div class="col-12 register">
+                  <a href="{% url 'register' %}">Register!</a>
+              </div>
+
+              <div class="col-12">
+                <button type="submit" id="link-longin" >
+                  <span></span>
+                  <span></span>
+                  <span></span>
+                  <span></span>
+                  Sing Up
+                </button>
+                <!-- <button type="submit" class="btn btn-primary btn-ghost">Login</button> -->
+              </div>
+            </div>
+
+        </form>
+      </div>
+
+      {% if messages %}
+      {% for message in messages %}
+      <div {% if message.tags %} class="alert4 alert alert-{{ message.tags }}" {% endif %} role="alert">
+      {{ message }}
+      {% endfor %}
+      </div>
+      {% endif %}
+
+
+</div>
+    <!-- Mbaron permbajtja -->
+{% endblock %}

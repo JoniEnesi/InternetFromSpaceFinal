@@ -1,0 +1,26 @@
+{% extends 'main.html' %}
+{% load static %}
+{% block content %}
+
+<div class="container-fluid" id="cont8">
+
+    {% include 'navbar.html' %}
+
+
+      <!-- Nis permbajtja -->
+
+      <div class="story">
+        <h1>INNOVATION.</h1>
+        <p class="bold">LightSpeed uses thousands  of micro satellites scrattered around in low orbit to bring high-speed internet anywhere on the planet. This lets us project down in fixed spot on the Earth and drastically reduce internet bandwidth and latency. Starlink is a satellite internet constellation operated by American aerospace company SpaceX, providing satellite Internet access coverage to over 56 countries. It also aims for global mobile phone service after 2023. SpaceX started launching Starlink satellites in 2019. As of May 2023, Starlink consists of over 4,000 mass-produced small satellites in low Earth orbit, which communicate with designated ground transceivers. In total, nearly 12,000 satellites are planned to be deployed, with a possible later extension to 42,000. SpaceX announced reaching more than 1 million subscribers in December 2022 and 1.5 million subscribers in May 2023.</p>
+      </div>
+
+      <div class="button-story">
+        <a href="{% url 'about' %}" class="btn btn-primary btn-story">Go back</a>
+        <a href="{% url 'price' %}" class="btn btn-primary btn-story">Purchase now</a>
+      </div>
+
+
+</div>
+    <!-- Mbaron permbajtja -->
+{% endblock %}
+

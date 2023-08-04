@@ -1,0 +1,38 @@
+{% extends 'main.html' %}
+{% load static %}
+{% block content %}
+
+<div class="container-fluid" id="cont7">
+
+    {% include 'navbar.html' %}
+
+
+      <!-- Nis permbajtja -->
+
+      <div class="story">
+        <h1>INTERNET ON A REMOTE ISLAND.</h1>
+        <p>
+          Internet service can be provided to remote islands in a variety of ways. Some common methods include:
+
+            Satellite: A satellite dish on the island connects to a satellite in orbit, which then connects to an Internet Service Provider (ISP) on the mainland. This can be a reliable option for remote islands, but it can also be expensive.
+            
+            Cellular: Cellular networks can be extended to remote islands using specialized equipment, such as cellular towers or microcells. This can be a cost-effective option, but it may not be as reliable as satellite service.
+            
+            Cable: Undersea cables can be laid to connect remote islands to the mainland for Internet service. This can be a reliable option, but it can be expensive to install and maintain.
+            
+            Wireless: Wireless networks can be set up on remote islands, such as Wi-Fi hotspots or mesh networks. This can be a cost-effective option, but the range and reliability may be limited.
+            
+            It's worth noting that the availability and quality of Internet service on remote islands can vary widely depending on a variety of factors, such as the island's location, infrastructure, and population density. Additionally, many remote islands have limited access to high-speed Internet services, and in some cases, access to the Internet is limited to satellite-based Internet services.
+          </p>
+          
+      </div>
+
+      <div class="button-story">
+        <a href="{% url 'about' %}" class="btn btn-primary btn-story">Go back</a>
+        <a href="{% url 'price' %}" class="btn btn-primary btn-story">Purchase now</a>
+      </div>
+
+
+</div>
+    <!-- Mbaron permbajtja -->
+{% endblock %}

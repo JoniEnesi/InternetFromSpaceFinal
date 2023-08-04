@@ -1,0 +1,52 @@
+{% extends 'main.html' %}
+{% load static %}
+{% block content %}
+
+<div class="container-fluid" id="cont3">
+    {% include 'navbar.html' %}
+
+      <!-- Nis permbajtja -->
+      <div class="container">
+
+        <div class="abtbg">
+            <div class="row src">
+                <div class="col">
+                    <div class="img1 second">
+                        <img src="{% static 'image/foto3.jpg' %}">
+                    </div>
+                </div>
+                <div class="col ab">
+                    <div class="parag1">
+                        <hr>
+                        <p>OUR SOLUTION</p>
+                    </div>
+                    <h2>LOOKING FOR SPPED?</h2>
+                    <p>A slow connection tha times out or takes minutes for a page to load is almost as bad as no connections at all. Therefore, the LightSpeed has decided to develop a solution that allows you to download anything at a minimum of 150 Mbps and upload at 10 Mbps with no frustration attached.</p>
+                    <a href="{% url 'price' %}" class="btn btn-primary btnabout1">SHOW ME</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="abtbg">
+            <div class="row src">
+                <div class="col">
+                    <div class="parag">
+                        <hr>
+                        <p>OUR PROMIS</p>
+                    </div>
+                    <h2>SECURITY IS IMPORTANT</h2>
+                    <p>Cybersecurity risks prevade every organizations and aren't akways under the direct control of your IT security team. Increasing global connectivity, usage of cloud services, and outsourcing means a much larger attack vector than in the past. Learn more about cyber security.</p>
+                    <a href="{% url 'cyber' %}" class="btn btn-primary btnabout">LEARN MORE</a>
+                </div>
+                <div class="col">
+                    <div class="img1">
+                        <img src="{% static 'image/foto4.jpg' %}">
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+    <!-- Mbaron permbajtja -->
+{% endblock %}

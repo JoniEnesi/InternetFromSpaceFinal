@@ -1,0 +1,48 @@
+    <footer class="container-fluid px-0">
+        <div class="footertext">
+            <i class="fa-solid fa-satellite cl"></i>
+            <h1>LIGHTSPEED</h1>
+            <p>LightSpeed is a satelllite internet constellation providing satellite internet access.</p>
+        </div>
+        <div class="container">
+          <div class="row">
+            <div class="col w">
+              <h3>About</h3>
+              <ul class="listfooter">
+                <li>How it works</li>
+                <li>Testemonials</li>
+                <li>Pricing</li>
+              </ul>
+            </div>
+            <div class="col w">
+              <h3>Solution</h3>
+              <ul class="listfooter">
+                <li>Individuals</li>
+                <li>Businesses</li>
+                <li>Non-Profit</li>
+              </ul>
+            </div>
+            <div class="col w">
+              <h3>Contact</h3>
+              <ul class="listfooter">
+                <li>Phone number</li>
+                <li>Email</li>
+                <li>Pinterest</li>
+                <li>Facebook</li>
+                <li>Instagram</li>
+                <li>Linkedin</li>
+              </ul>
+            </div>
+            <div class="col w">
+              {% if user.is_authenticated %}
+                  <a href="{% url 'logout' %}" class="btnsing btn">Sing Out</a>
+              {% else %}
+                  <a href="{% url 'singup' %}" class="btnsing btn">Sing Up</a>
+              {% endif %}
+            </div>
+          </div>
+        </div>
+    </footer>
+    <div class="copy">
+        Copyright &#169; <span id="year">2020</span>. All right Reserved.
+    </div>

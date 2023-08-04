@@ -1,0 +1,24 @@
+{% extends 'main.html' %}
+{% load static %}
+{% block content %}
+
+<div class="container-fluid" id="cont9">
+
+    {% include 'navbar.html' %}
+
+
+      <!-- Nis permbajtja -->
+
+      <div class="story">
+        <h1>CYBER SECURITY.</h1>
+        <p class="bold">Before the invasion, governments across the globe were already considering cybersecurity strategies to counter the ever-escalating cyberthreats from state actors and criminal groups. But the new risks perceived by governments since February are fueling a new urgency towards building cyber-resilience. On March 15th, US President Joe Biden signed the Strengthening American Cybersecurity Act of 2022, requiring companies dealing with critical infrastructure to report substantial cyberattacks to the Cybersecurity and Infrastructure Security Agency (CISA) within 72 hours and all ransomware payments within one day. More than just a disclosure law, the new regulation is intended to change the perception of a cyberattack from a private company matter to a public threat. This legislation comes as part of a trend, following the Colonial Pipeline attack in May 2021 when President Biden signaled a new role for cybersecurity and asked for a whole-of-government approach to cyberthreats. </p>
+      </div>
+
+      <div class="button-story">
+        <a href="{% url 'about' %}" class="btn btn-primary btn-story">Go back</a>
+        <a href="{% url 'price' %}" class="btn btn-primary btn-story">Purchase now</a>
+      </div>
+
+</div>
+    <!-- Mbaron permbajtja -->
+{% endblock %}
