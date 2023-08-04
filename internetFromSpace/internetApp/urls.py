@@ -18,4 +18,5 @@ urlpatterns = [
     path("paypal-reverse", views.paypal_reverse, name="paypal-reverse"),
     path("paypal-cancel", views.paypal_cancel, name="paypal-cancel"),
     path("pay/<slug:slug>/", views.payFun, name="pay"),
+    path("paybusiness/<slug:slug>/", views.payFunBusiness, name="paybusiness"),
 ]

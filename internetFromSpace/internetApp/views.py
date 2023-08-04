@@ -97,7 +97,6 @@ def payFun(request, slug):
 @login_required(login_url='singup')
 def priceProductBusiness(request, slug):
     detProduct_Business = PriceBusiness.objects.get(slug=slug)
-    host = request.get_host()
 
     if request.method == 'POST':
         emri = request.POST['res_emri']
@@ -110,24 +109,33 @@ def priceProductBusiness(request, slug):
         if emri !='' and mbiemri !='' and email !='' and number !='' and address !='' and street !='':
             Reservation(reservation_name = emri, reservation_lastname = mbiemri, reservation_email = email, reservation_phone = number, reservation_address = address, reservation_street = street, reservation_paketBusiness = detProduct_Business, user = request.user).save()
             messages.success(request, "Your reservation is sended!")
+            return redirect('paybusiness', slug=slug)
         else:
             messages.warning(request, "Reservation not send!")
 
+    context = {'detProduct_Business':detProduct_Business}
+    return render(request, 'price_category.html', context)
+
+
+def payFunBusiness(request, slug):
+    detProduct_Business = PriceBusiness.objects.get(slug=slug)
+    host = request.get_host()
+
     paypal_dict ={
         'business': settings.PAYPAL_RECEIVER_EMAIL,
-        'amount': '00.01',
-        'item_name': 'Paketa1',
+        'amount': detProduct_Business.internet1_price,
+        'item_name': detProduct_Business.slug,
         'invoice': str(uuid.uuid4()),
         'currency_code': 'USD',
         'notify_url': f'http://{host}{reverse("paypal-ipn")}',
         'return_url': f'http://{host}{reverse("paypal-reverse")}',
         'cancel_return': f'http://{host}{reverse("paypal-cancel")}',
     }
+
     form = PayPalPaymentsForm(initial=paypal_dict)
 
     context = {'detProduct_Business':detProduct_Business, 'form':form}
-    return render(request, 'price_category.html', context)
-
+    return render(request, 'pay_business.html', context)
 
 def singupFun(request):
 
