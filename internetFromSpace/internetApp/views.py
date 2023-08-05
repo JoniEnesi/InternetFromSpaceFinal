@@ -193,5 +193,5 @@ def paypal_reverse(request):
     return redirect('price')
 
 def paypal_cancel(request):
-    messages.warning(request, 'Your order have been cancelled')
+    messages.warning(request, 'Your order has not been paid! You only sent the reservation!')
     return redirect('price')
