@@ -66,7 +66,7 @@ def priceProduct(request, slug):
             Reservation(reservation_name=emri, reservation_lastname=mbiemri, reservation_email=email,
                         reservation_phone=number, reservation_address=address, reservation_street=street,
                         reservation_paket=detProduct, user=request.user).save()
-            messages.success(request, "Your reservation is sended!")
+            messages.success(request, "Your reservation is sended, Pay Now!"),
             return redirect('pay', slug=slug)
         else:
             messages.warning(request, "Reservation not send!")
@@ -108,7 +108,7 @@ def priceProductBusiness(request, slug):
 
         if emri !='' and mbiemri !='' and email !='' and number !='' and address !='' and street !='':
             Reservation(reservation_name = emri, reservation_lastname = mbiemri, reservation_email = email, reservation_phone = number, reservation_address = address, reservation_street = street, reservation_paketBusiness = detProduct_Business, user = request.user).save()
-            messages.success(request, "Your reservation is sended!")
+            messages.success(request, "Your reservation is sended, Pay Now!")
             return redirect('paybusiness', slug=slug)
         else:
             messages.warning(request, "Reservation not send!")
