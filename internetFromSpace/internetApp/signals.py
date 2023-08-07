@@ -8,14 +8,16 @@ def valid_ipn_signal(sender,  **kwargs):
     print('Ipn valid')
     ipn = sender
     if ipn.payment_status == 'Completed':
-        try:
+        if ipn.receiver_email != "sb-rwelo26642530@business.example.com":
+            print('Invalid receiver email:', ipn.receiver_email)
+            return
+        if ipn.receiver_email == "sb-rwelo26642530@business.example.com":
             my_pk = ipn.item_name
-            reservation = Reservation.objects.get(reservation_paket__slug=my_pk)
-            reservation.is_paid = True
-            reservation.save()
+            reservations = Reservation.objects.filter(reservation_paket__slug=my_pk)
+            for reservation in reservations:
+                    reservation.is_paid = True
+                    reservation.save()
 
-        except Reservation.DoesNotExist:
-            pass
 
 
 @receiver(valid_ipn_received)
@@ -23,11 +25,12 @@ def valid_ipn_signal(sender,  **kwargs):
     print('Ipn valid')
     ipn = sender
     if ipn.payment_status == 'Completed':
-        try:
+        if ipn.receiver_email != "sb-rwelo26642530@business.example.com":
+            print('Invalid receiver email:', ipn.receiver_email)
+            return
+        if ipn.receiver_email == "sb-rwelo26642530@business.example.com":
             my_pk = ipn.item_name
-            reservation = Reservation.objects.get(reservation_paketBusiness__slug=my_pk)
-            reservation.is_paid = True
-            reservation.save()
-
-        except Reservation.DoesNotExist:
-            pass
+            reservations = Reservation.objects.filter(reservation_paketBusiness__slug=my_pk)
+            for reservation in reservations:
+                reservation.is_paid = True
+                reservation.save()
